@@ -1,0 +1,13 @@
+rspamd:
+  enable_service: True
+
+  local_addrs: 127.0.0.0/8, ::1
+
+  worker-controller:
+    password: CHANGE_ME
+
+  worker:
+    bind_socket: localhost:11333
+
+  worker-proxy:
+    bind_socket: localhost:11332
