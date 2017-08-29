@@ -2,22 +2,23 @@
 
 rspamd_dkim_directory:
   file.directory:
-    - name: {{ dkim.base_dir }}:
+    - name: {{ dkim.base_dir }}
     - present: True
     - mode: 700
     - user: _rspamd
     - group: _rspamd
 
 rspamd_dkim_config:
-  file.exists:
+  file.managed:
+    - name: /etc/rspamd/local.d/dkim.conf
     - source: salt://rspamd/files/dkim.conf
     - template: jinja
     - watch_in:
         service: rspamd
 
 {% for domain, data in dkim.domains.iteritems() %}
-rspamd_domain_private_key:
-  file.exists:
+rspamd_{{ domain }}_private_key:
+  file.managed:
     - name: {{ dkim.base_dir }}/{{ domain }}.dkim.key
     - mode: 600
     - user: _rspamd
