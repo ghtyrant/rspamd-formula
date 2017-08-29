@@ -5,6 +5,7 @@ rspamd:
 
   worker-controller:
     password: CHANGE_ME
+    bind_socket: localhost:11334
 
   worker:
     bind_socket: localhost:11333
