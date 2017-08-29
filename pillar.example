@@ -12,3 +12,19 @@ rspamd:
 
   worker-proxy:
     bind_socket: localhost:11332
+
+  dkim:
+    enabled: True
+    base_dir: /etc/rspamd/dkim
+    domains:
+      example.com:
+        key: |
+          -----BEGIN PRIVATE KEY-----
+          (...)
+          -----END PRIVATE KEY-----
+
+      example.net:
+        key: |
+          -----BEGIN PRIVATE KEY-----
+          (...)
+          -----END PRIVATE KEY-----

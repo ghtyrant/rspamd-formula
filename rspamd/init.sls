@@ -1,6 +1,9 @@
 include:
   - rspamd.install
   - rspamd.config
+  {% if salt['pillar.get']('rspamd:dkim:enabled', False) %}
+  - rspamd.dkim
+  {% endif %}
 
 rspamd_service:
   service.running:
