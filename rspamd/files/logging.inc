@@ -1,2 +1,2 @@
 type = "syslog";
-level = "debug";
+level = "info";
