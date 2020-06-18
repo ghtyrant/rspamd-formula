@@ -34,3 +34,8 @@ rspamd_milter_headers:
     - source: salt://rspamd/files/milter_headers.conf
     - template: jinja
 
+rspamd_bayes_server:
+  file.managed:
+    - name: /etc/rspamd/local.d/bayes_classifier.conf
+    - source: salt://rspamd/files/bayes_classifier.conf
+    - template: jinja
