@@ -13,6 +13,10 @@ rspamd:
   worker-proxy:
     bind_socket: localhost:11332
 
+  bayes:
+    redis_server: 127.0.0.1
+    min_learns: 200
+
   dkim:
     enabled: True
     base_dir: /etc/rspamd/dkim
